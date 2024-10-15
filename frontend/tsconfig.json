@@ -38,6 +38,6 @@
     "app/login/page.tsx",
     "components/login/Login.tsx",
     "api/useFetch.jsx"
-  ],
+, "components/ShopSelector.tsx"  ],
   "exclude": ["node_modules"]
 }

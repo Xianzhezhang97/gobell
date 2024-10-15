@@ -132,7 +132,7 @@ type Merchant = {
 
 type ShopSelectorProps = {
   activeMerchant: Merchant | null;
-  handleMerchantClick: (merchant: Merchant) => void;
+  handleMerchantClick: (merchant: Merchant, e: any) => void;
 };
 
 const ShopSelector: React.FC<ShopSelectorProps> = ({
@@ -191,7 +191,7 @@ const ShopSelector: React.FC<ShopSelectorProps> = ({
       <div className=' grid-gap col'>
         {sortedMerchants.map((merchant, index) => (
           <div
-            onClick={() => handleMerchantClick(merchant)}
+            onClick={() => handleMerchantClick(merchant, event)}
             key={index}
             className={` cursor-pointer flex w-full card-padding card-rounded justify-between items-center ${
               activeMerchant === merchant ? 'border-hover border-2' : 'border'

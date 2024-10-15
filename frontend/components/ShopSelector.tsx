@@ -54,7 +54,8 @@ const ShopSelector: React.FC = () => {
   }, [user.userLocation]);
 
   // 处理店铺点击事件
-  const handleMerchantClick = (merchant: Merchant) => {
+  const handleMerchantClick = (merchant: Merchant, e: any) => {
+    e.stopPropagation();
     setActiveMerchant(merchant);
     if (mapRef.current) {
       mapRef.current.flyTo({
@@ -106,7 +107,7 @@ const ShopSelector: React.FC = () => {
               longitude={merchant.longitude}
               latitude={merchant.latitude}
               anchor='bottom'
-              onClick={() => handleMerchantClick(merchant)}
+              onClick={() => handleMerchantClick(merchant, event)}
             >
               <div className='bg-hover border-white rounded-full cursor-pointer border-2 h-[40px]  shadow-md p-2 w-[40px]'>
                 <Logo className='h-full fill-white w-full ' />

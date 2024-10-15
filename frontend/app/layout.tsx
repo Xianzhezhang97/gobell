@@ -30,6 +30,11 @@ function Content({ children }: { children: React.ReactNode }) {
         global.Background ? 'bg-white' : 'bg-gray-200/40'
       }  darrk:bg-gray-900 overflow-x-hidden scroll-smooth`}
     >
+      <link
+        rel='icon'
+        href='https://3o.hk/images/2024/01/14/avatar.th.jpg'
+        type='image/x-icon'
+      />
       <body className={inter.className}>
         <GlobalNotification />
         <motion.div

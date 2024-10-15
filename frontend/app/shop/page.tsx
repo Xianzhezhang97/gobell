@@ -53,14 +53,14 @@ export default function OrderList() {
         }
       })
       .catch((error) => {
-        d(
-          addNotification({
-            id: uuidv4(),
-            isOpen: true,
-            Message: t('Internet Error.'),
-            Type: 'error',
-          }),
-        );
+        // d(
+        //   addNotification({
+        //     id: uuidv4(),
+        //     isOpen: true,
+        //     Message: t('Internet Error.'),
+        //     Type: 'error',
+        //   }),
+        // );
       });
 
     return () => {

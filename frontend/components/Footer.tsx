@@ -12,7 +12,10 @@ export default function Footer() {
         className='flex flex-col w-full pb-[20vh]  justify-center items-center'
       >
         <div className='flex text-muted text-xs w-full pt-4 justify-center'>
-          Copyright © 2023-2024 All rights reserved by Gobell
+          All rights reserved by Scott Cheung
+        </div>
+        <div className='flex text-muted text-xs w-full pt-4 justify-center'>
+          Copyright © 2023-2024
         </div>
       </motion.div>
     )

@@ -33,48 +33,49 @@ export default function OrderPanel({ bgColor = 'bg-white' }) {
 
   return (
     <AnimatePresence>
-      <motion.div
-        layout
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ delay: 0.45, ease: 'easeInOut' }}
-        className='top-0 z-40 col-span-12 sticky lg:col-span-12'
-      >
-        <div
-          ref={ref}
-          className={`flex flex-col card-padding top-2 z-50 transition-all duration-1000 sticky items-start  ${
-            isSticky
-              ? ' wipe-in-down bg-gradient-to-b from-neutral via-[70%] via-neutral to-transparent  pb-8'
-              : `${bgColor} card-rounded `
-          }`}
+      <div className='top-0 z-40 col-span-12 sticky lg:col-span-12'>
+        <motion.div
+          layout
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 0.45, ease: 'easeInOut' }}
         >
-          <p className='font-semibold text-xs text-gray-400'>My Order</p>
-          <div className='flex space-x-6 mt-2 w-full items-baseline'>
-            {tabs.map((tab) => (
-              <div key={tab.name} className='flex-col center'>
-                <button
-                  className={`transition-all ${
-                    order.currentTab === tab.name
-                      ? 'font-bold text-primary'
-                      : 'text-gray-500'
-                  }`}
-                  onClick={() => dispatch(setCurrentTab(tab.name))}
-                >
-                  {tab.label}
-                </button>
-                {order.currentTab === tab.name && (
-                  <motion.div
-                    className='bg-hover rounded-full h-1 mt-2 w-[30px] z-50 solid'
-                    layoutId='activeTabIndicator'
-                    transition={{ type: 'spring', stiffness: 70 }}
-                  />
-                )}
-              </div>
-            ))}
+          <div
+            ref={ref}
+            className={`flex flex-col card-padding top-2 z-50 transition-all duration-1000 sticky items-start  ${
+              isSticky
+                ? ' wipe-in-down bg-gradient-to-b from-neutral via-[70%] via-neutral to-transparent  pb-8'
+                : `${bgColor} card-rounded `
+            }`}
+          >
+            <p className='font-semibold text-xs text-gray-400'>My Order</p>
+            <div className='flex space-x-6 mt-2 w-full items-baseline'>
+              {tabs.map((tab) => (
+                <div key={tab.name} className='flex-col center'>
+                  <button
+                    className={`transition-all ${
+                      order.currentTab === tab.name
+                        ? 'font-bold text-primary'
+                        : 'text-gray-500'
+                    }`}
+                    onClick={() => dispatch(setCurrentTab(tab.name))}
+                  >
+                    {tab.label}
+                  </button>
+                  {order.currentTab === tab.name && (
+                    <motion.div
+                      className='bg-hover rounded-full h-1 mt-2 w-[30px] z-50 solid'
+                      layoutId='activeTabIndicator'
+                      transition={{ type: 'spring', stiffness: 70 }}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </AnimatePresence>
   );
 }

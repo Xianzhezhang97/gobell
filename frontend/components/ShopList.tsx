@@ -61,37 +61,37 @@ const useMerchantsData = () => {
   );
 
   useEffect(() => {
-    if (merchantsData.length === 0) {
-      const fetchMerchants = async () => {
-        try {
-          const response = await fetchData('/merchant/list/', 'GET');
-          if (response.code === 200) {
-            dispatch(setMerchantsData(response.data));
-          } else {
-            dispatch(
-              addNotification({
-                id: uuidv4(),
-                isOpen: true,
-                Message: t(
-                  'An unexpected error occurred. Please try again later.',
-                ),
-                Type: 'error',
-              }),
-            );
-          }
-        } catch (error) {
-          dispatch(
-            addNotification({
-              id: uuidv4(),
-              isOpen: true,
-              Message: t('Internet Error.'),
-              Type: 'error',
-            }),
-          );
-        }
-      };
-      fetchMerchants();
-    }
+    // if (merchantsData.length === 0) {
+    //   const fetchMerchants = async () => {
+    //     try {
+    //       const response = await fetchData('/merchant/list/', 'GET');
+    //       if (response.code === 200) {
+    //         dispatch(setMerchantsData(response.data));
+    //       } else {
+    //         dispatch(
+    //           addNotification({
+    //             id: uuidv4(),
+    //             isOpen: true,
+    //             Message: t(
+    //               'An unexpected error occurred. Please try again later.',
+    //             ),
+    //             Type: 'error',
+    //           }),
+    //         );
+    //       }
+    //     } catch (error) {
+    //       dispatch(
+    //         addNotification({
+    //           id: uuidv4(),
+    //           isOpen: true,
+    //           Message: t('Internet Error.'),
+    //           Type: 'error',
+    //         }),
+    //       );
+    //     }
+    //   };
+    //   fetchMerchants();
+    // }
   }, [dispatch, fetchData, t, merchantsData]);
 
   return merchantsData;

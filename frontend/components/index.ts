@@ -14,15 +14,16 @@ import staticData from '@/components/staticData.json';
 import GlobalNotification from './GlobalNotification';
 
 // TypeScript: Function to ensure a minimum delay with proper typing
-const withMinDelay = <T extends unknown>(
+const withMinDelay = async <T extends unknown>(
   promise: Promise<T>,
   delay: number,
 ): Promise<T> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(promise);
-    }, delay);
-  });
+  // Use Promise.all to ensure both the promise and timeout complete
+  const [result] = await Promise.all([
+    promise,
+    new Promise((resolve) => setTimeout(resolve, delay)), // Adds delay
+  ]);
+  return result;
 };
 
 // Dynamic Imports with Suspense and a minimum loading time of 0.5s

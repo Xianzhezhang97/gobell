@@ -35,7 +35,6 @@ export default function OrderPanel({ bgColor = 'bg-white' }) {
     <AnimatePresence>
       <div className='top-0 z-40 col-span-12 sticky lg:col-span-12'>
         <motion.div
-          layout
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

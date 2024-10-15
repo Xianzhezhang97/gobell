@@ -5,7 +5,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'avatars.githubusercontent.com', // 主机名
-        port: '', // 如果没有特定端口，保持为空字符串是正确的
+        port: '', // 
         pathname: '/**', // 匹配所有路径
       },
       {

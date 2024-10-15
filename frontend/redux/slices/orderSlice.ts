@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Order, OrderState, Customization } from '@/types/order';
 
 // Sample order data, assuming types have been defined in '@/types/order'
-const ordersExample: Order[] = [
+const initialOrder: Order[] = [
   {
     id: '202404010010010001',
     store: 'Violet Chocolate',
@@ -356,7 +356,7 @@ const ordersExample: Order[] = [
     },
   },
 ];
-const initialOrder: Order[] = [];
+// const initialOrder: Order[] = [];
 
 const initialState: OrderState = {
   orders: initialOrder,

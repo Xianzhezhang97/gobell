@@ -19,6 +19,7 @@ interface BaseVoucher {
   FixedVoucher: string | null;
   description: string;
   expired: string;
+  expiredAt: string;
   redeemedAt?: string;
   usedAt?: string;
   available: boolean;
@@ -116,7 +117,7 @@ const VoucherList: React.FC<VoucherListProps> = ({ vouchers }) => {
                 transition={defaultTransition}
                 className='text-xs line-clamp-1'
               >
-                Remain: {voucher.total - voucher.used} / {voucher.total}
+                Expel: {voucher.expiredAt}
               </motion.p>
             </motion.div>
             {/* Redeem Button */}
@@ -197,7 +198,7 @@ const VoucherList: React.FC<VoucherListProps> = ({ vouchers }) => {
                     transition={defaultTransition}
                     className='mt-4 text-xs'
                   >
-                    Expel: {selectedVoucher.expired}
+                    Expel: {selectedVoucher.expiredAt}
                   </motion.p>
                   <p className='mt-4 text-xs'>所有解释权归 Gobell™ 所有</p>
                 </motion.div>

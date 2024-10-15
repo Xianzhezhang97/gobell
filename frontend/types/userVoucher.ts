@@ -6,6 +6,7 @@ export interface BaseVoucher {
   value: number;
   expiredAt: string;
   redeemedAt?: string;
+  available: boolean;
   usedAt?: string;
   status: 'unused' | 'used' | 'expired';
 }

@@ -14,6 +14,7 @@ const vouchersExample: Voucher[] = [
       '这张券满500元可用，这张券满500元可用。这张券满500元可用，这张券满500元可用。这张券满500元可用，这张券满500元可用。这张券满500元可用，这张券满500元可用。',
     value: 100,
     minimumSpend: 500,
+    available: true,
     expiredAt: '2024-12-31',
     status: 'unused',
   },
@@ -21,6 +22,7 @@ const vouchersExample: Voucher[] = [
     id: '2hbgyh89t78gt7r79g9',
     name: '满100减10%',
     type: 'percentage',
+    available: true,
     description:
       '这张券满100元可用，这张券满100元可用。这张券满100元可用，这张券满100元可用。这张券满100元可用，这张券满100元可用。这张券满100元可用，这张券满100元可用。',
     value: 10,
@@ -33,6 +35,7 @@ const vouchersExample: Voucher[] = [
     id: '3hgruyhvi',
     name: '兑换免费酒店住宿',
     type: 'exchange',
+    available: true,
     description:
       '这张券可兑换一晚酒店住宿。这张券可兑换一晚酒店住宿。这张券可兑换一晚酒店住宿。这张券可兑换一晚酒店住宿。这张券可兑换一晚酒店住宿。',
     value: 0,
@@ -43,6 +46,7 @@ const vouchersExample: Voucher[] = [
   {
     id: '4hkjhjvtu',
     name: '兑换免费啤酒一瓶',
+    available: true,
     description:
       '这张券可兑换一瓶啤酒。这张券可兑换一瓶啤酒。这张券可兑换一瓶啤酒。这张券可兑换一瓶啤酒。这张券可兑换一瓶啤酒。这张券可兑换一瓶啤酒。',
     type: 'exchange',
@@ -54,6 +58,7 @@ const vouchersExample: Voucher[] = [
   {
     id: '5hgjgj7',
     name: '买一送一',
+    available: false,
     type: 'bundle',
     description:
       '这张券可换购啤酒系列和啤酒系列。这张券可换购啤酒系列和啤酒系列。这张券可换购啤酒系列和啤酒系列。这张券可换购啤酒系列和啤酒系列。这张券可换购啤酒系列和啤酒系列。',
@@ -95,29 +100,29 @@ const addressExample: userAddress[] = [
 ];
 
 // 初始状态
-const initialState: userType = {
-  name: 'Login',
-  avatar: '',
-  email: '',
-  isLoggedIn: false,
-  gender: '',
-  pronoun: '',
-  birthday: '',
-  growth: 0,
-  balance: 0,
-  credit: 0,
-  type: 'normal',
-  member_id: 0,
-  card_creatAt: true,
-  status: 'active',
-  phone: '',
-  location: [],
-  voucher: [],
-  transaction: [],
-  userLocation: { lat: -33.8688, lng: 151.2093 },
-};
+// const initialState: userType = {
+//   name: 'Login',
+//   avatar: '',
+//   email: '',
+//   isLoggedIn: false,
+//   gender: '',
+//   pronoun: '',
+//   birthday: '',
+//   growth: 0,
+//   balance: 0,
+//   credit: 0,
+//   type: 'normal',
+//   member_id: 0,
+//   card_creatAt: true,
+//   status: 'active',
+//   phone: '',
+//   location: [],
+//   voucher: [],
+//   transaction: [],
+//   userLocation: { lat: -33.8688, lng: 151.2093 },
+// };
 
-const LoginState: userType = {
+const initialState: userType = {
   name: 'Scott Cheung',
   avatar: '/graph/avater.png',
   email: 'scott@example.com',
@@ -135,7 +140,54 @@ const LoginState: userType = {
   phone: '434344292',
   location: addressExample,
   voucher: vouchersExample,
-  transaction: [],
+  transaction: [
+    {
+      tid: 'a3ec0f89-5938-4f3e-97c5-8630fb0a770e',
+      deposit: null,
+      withdraw: {
+        amount: 1,
+        credit: 0.5,
+        original: 1,
+      },
+      created_at: '2024-09-13T09:28:40.988460',
+    },
+    {
+      tid: '06e45c5f-ef2b-4c70-aae6-1bc566e0abe1',
+      deposit: null,
+      withdraw: {
+        amount: 1,
+        credit: 0.5,
+        original: 1,
+      },
+      created_at: '2024-09-13T09:28:34.400625',
+    },
+    {
+      tid: 'd63572b0-7b00-4b62-9a37-240ae2ca083f',
+      deposit: {
+        amount: 500,
+      },
+      withdraw: null,
+      created_at: '2024-09-13T07:33:27.173778',
+    },
+    {
+      tid: '2c00a38d-a9f4-4ec5-b63a-dc9417ee906a',
+      deposit: null,
+      withdraw: {
+        amount: 10,
+        credit: 5,
+        original: 10,
+      },
+      created_at: '2024-09-13T07:32:32.252065',
+    },
+    {
+      tid: '5e5cda1a-a72d-4eea-a59b-cab0db8db5f1',
+      deposit: {
+        amount: 100,
+      },
+      withdraw: null,
+      created_at: '2024-09-13T07:32:22.113941',
+    },
+  ],
   userLocation: { lat: -33.8688, lng: 151.2093 },
 };
 

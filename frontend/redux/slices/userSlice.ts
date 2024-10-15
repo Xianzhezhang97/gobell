@@ -140,6 +140,7 @@ const initialState: userType = {
   phone: '434344292',
   location: addressExample,
   voucher: vouchersExample,
+  userLocation: { lat: -33.8688, lng: 151.2093 },
   transaction: [
     {
       tid: 'a3ec0f89-5938-4f3e-97c5-8630fb0a770e',

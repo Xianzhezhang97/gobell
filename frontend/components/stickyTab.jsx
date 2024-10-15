@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { RootState } from '@/redux/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentTab } from '@/redux/slices/orderSlice';
+import { debounce } from 'lodash';
 
 export default function OrderPanel({ bgColor = 'bg-white' }) {
   const dispatch = useDispatch();
@@ -11,19 +12,20 @@ export default function OrderPanel({ bgColor = 'bg-white' }) {
   const ref = useRef(null);
   const order = useSelector((state) => state.order);
 
-  const handleScroll = () => {
+  // Handle scroll with debounce
+  const handleScroll = debounce(() => {
     if (ref.current) {
       const sticky = ref.current.getBoundingClientRect().top <= 0;
       setIsSticky(sticky);
     }
-  };
+  }, 300);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
   const tabs = [
     { name: 'All', label: 'All Order' },

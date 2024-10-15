@@ -13,86 +13,38 @@ import TopBg from './TopBg';
 import staticData from '@/components/staticData.json';
 import GlobalNotification from './GlobalNotification';
 
-// TypeScript: Function to ensure a minimum delay with proper typing
-const withMinDelay = async <T extends unknown>(
-  promise: Promise<T>,
-  delay: number,
-): Promise<T> => {
-  // Use Promise.all to ensure both the promise and timeout complete
-  const [result] = await Promise.all([
-    promise,
-    new Promise((resolve) => setTimeout(resolve, delay)), // Adds delay
-  ]);
-  return result;
-};
+// Dynamic Imports with Suspense
+const AccountBG = dynamic(() => import('./accountBG'), { suspense: true });
+const AccountPannel = dynamic(() => import('./accountPannel'), {
+  suspense: true,
+});
+const CardPolicy = dynamic(() => import('./CardPolicy'), { suspense: true });
+const CardApply = dynamic(() => import('./CardApply'), { suspense: true });
+const HomeTabBar = dynamic(() => import('./HomeTabBar'), { suspense: true });
+const HomePannel = dynamic(() => import('./HomePannel'), { suspense: true });
+const InputEdit = dynamic(() => import('./inputEdit'), { suspense: true });
+const Login = dynamic(() => import('./login/Login'), { suspense: true });
+const OptLogin = dynamic(() => import('./login/optLogin'), { suspense: true });
+const OrderDetail = dynamic(() => import('./OrderDetail'), { suspense: true });
 
-// Dynamic Imports with Suspense and a minimum loading time of 0.5s
-const AccountBG = dynamic(() => withMinDelay(import('./accountBG'), 500), {
+const OrderPannel = dynamic(() => import('./orderPannel'), { suspense: true });
+const PaymentMethod = dynamic(() => import('./PaymentMethod'), {
   suspense: true,
 });
-const AccountPannel = dynamic(
-  () => withMinDelay(import('./accountPannel'), 500),
-  { suspense: true },
-);
-const CardPolicy = dynamic(() => withMinDelay(import('./CardPolicy'), 500), {
+const Signup = dynamic(() => import('./Signup'), { suspense: true });
+const ShopSelector = dynamic(() => import('./ShopSelector'), {
   suspense: true,
 });
-const CardApply = dynamic(() => withMinDelay(import('./CardApply'), 500), {
+const UserCard = dynamic(() => import('./card/userCard'), { suspense: true });
+const UserPaymentSummary = dynamic(() => import('./userPaymentSummary'), {
   suspense: true,
 });
-const HomeTabBar = dynamic(() => withMinDelay(import('./HomeTabBar'), 500), {
-  suspense: true,
-});
-const HomePannel = dynamic(() => withMinDelay(import('./HomePannel'), 500), {
-  suspense: true,
-});
-const InputEdit = dynamic(() => withMinDelay(import('./inputEdit'), 500), {
-  suspense: true,
-});
-const Login = dynamic(() => withMinDelay(import('./login/Login'), 500), {
-  suspense: true,
-});
-const OptLogin = dynamic(() => withMinDelay(import('./login/optLogin'), 500), {
-  suspense: true,
-});
-const OrderDetail = dynamic(() => withMinDelay(import('./OrderDetail'), 500), {
-  suspense: true,
-});
-const OrderPannel = dynamic(() => withMinDelay(import('./orderPannel'), 500), {
-  suspense: true,
-});
-const PaymentMethod = dynamic(
-  () => withMinDelay(import('./PaymentMethod'), 500),
-  { suspense: true },
-);
-const Signup = dynamic(() => withMinDelay(import('./Signup'), 500), {
-  suspense: true,
-});
-const ShopSelector = dynamic(
-  () => withMinDelay(import('./ShopSelector'), 500),
-  { suspense: true },
-);
-const UserCard = dynamic(() => withMinDelay(import('./card/userCard'), 500), {
-  suspense: true,
-});
-const UserPaymentSummary = dynamic(
-  () => withMinDelay(import('./userPaymentSummary'), 500),
-  { suspense: true },
-);
-const VoucherList = dynamic(() => withMinDelay(import('./Voucher'), 500), {
-  suspense: true,
-});
-const OrderItem = dynamic(() => withMinDelay(import('./OrderItem'), 500), {
-  suspense: true,
-});
-const Avatar = dynamic(() => withMinDelay(import('./avatar'), 500), {
-  suspense: true,
-});
-const Transaction = dynamic(() => withMinDelay(import('./Transaction'), 500), {
-  suspense: true,
-});
+const VoucherList = dynamic(() => import('./Voucher'), { suspense: true });
+const OrderItem = dynamic(() => import('./OrderItem'), { suspense: true });
+const Avatar = dynamic(() => import('./avatar'), { suspense: true });
+const Transaction = dynamic(() => import('./Transaction'), { suspense: true });
 
-// Components Object with TypeScript
+// Components Object
 const components = {
   AccountBG,
   AccountPannel,

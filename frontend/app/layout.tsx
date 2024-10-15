@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { store, RootState } from '@/redux/store';
 import './global.css';
 import components from '@/components';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 interface TabItem {

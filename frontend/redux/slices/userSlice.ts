@@ -189,7 +189,6 @@ const initialState: userType = {
       created_at: '2024-09-13T07:32:22.113941',
     },
   ],
-  userLocation: { lat: -33.8688, lng: 151.2093 },
 };
 
 // 定义 Redux Slice

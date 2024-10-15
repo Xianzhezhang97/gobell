@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "@flaticon/flaticon-uicons": "^3.3.1",
